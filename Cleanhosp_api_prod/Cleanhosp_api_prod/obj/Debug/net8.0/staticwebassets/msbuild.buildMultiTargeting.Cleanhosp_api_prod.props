@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Cleanhosp_api_prod.props" />
+</Project>
