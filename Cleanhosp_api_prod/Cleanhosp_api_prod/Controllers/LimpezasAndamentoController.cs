@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using CleanHospAPI.Models;
 using CleanHosp.Context;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace CleanHospAPI.Controllers
 {
@@ -21,6 +23,7 @@ namespace CleanHospAPI.Controllers
 
         // GET: api/LimpezasAndamento
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<LimpezaAndamento>>> GetLimpezasAndamento()
         {
             return await _context.LimpezasAndamento.ToListAsync();
@@ -28,6 +31,7 @@ namespace CleanHospAPI.Controllers
 
         // GET: api/LimpezasAndamento/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<LimpezaAndamento>> GetLimpezaAndamento(int id)
         {
             var limpezaAndamento = await _context.LimpezasAndamento.FindAsync(id);
@@ -42,6 +46,7 @@ namespace CleanHospAPI.Controllers
 
         // POST: api/LimpezasAndamento
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<LimpezaAndamento>> PostLimpezaAndamento(LimpezaAndamento limpezaAndamento)
         {
             _context.LimpezasAndamento.Add(limpezaAndamento);
@@ -50,13 +55,21 @@ namespace CleanHospAPI.Controllers
             return CreatedAtAction(nameof(GetLimpezaAndamento), new { id = limpezaAndamento.LimpezaAndamentoId }, limpezaAndamento);
         }
 
-        // PUT: api/LimpezasAndamento/5
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutLimpezaAndamento(int id, LimpezaAndamento limpezaAndamento)
         {
             if (id != limpezaAndamento.LimpezaAndamentoId)
             {
                 return BadRequest();
+            }
+
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var existingLimpeza = await _context.LimpezasAndamento.FindAsync(id);
+
+            if (existingLimpeza == null || existingLimpeza.PessoaId.ToString() != userId)
+            {
+                return Forbid();
             }
 
             _context.Entry(limpezaAndamento).State = EntityState.Modified;
@@ -82,6 +95,7 @@ namespace CleanHospAPI.Controllers
 
         // DELETE: api/LimpezasAndamento/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteLimpezaAndamento(int id)
         {
             var limpezaAndamento = await _context.LimpezasAndamento.FindAsync(id);

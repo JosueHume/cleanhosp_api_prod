@@ -102,3 +102,12 @@ C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_pr
 C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_prod\obj\Debug\net8.0\Cleanhosp_api_prod.pdb
 C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_prod\obj\Debug\net8.0\Cleanhosp_api_prod.genruntimeconfig.cache
 C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_prod\obj\Debug\net8.0\ref\Cleanhosp_api_prod.dll
+C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_prod\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_prod\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_prod\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_prod\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_prod\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_prod\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_prod\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_prod\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Desenvolvimento\C#\API\cleanhosp_api_prod\Cleanhosp_api_prod\Cleanhosp_api_prod\obj\Debug\net8.0\Cleanhosp_api_prod.sourcelink.json
