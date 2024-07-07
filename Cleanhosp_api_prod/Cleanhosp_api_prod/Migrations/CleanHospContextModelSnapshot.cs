@@ -51,7 +51,7 @@ namespace Cleanhosp_api_prod.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("boolean");
 
-                    b.Property<DateTime?>("DataAquisicao")
+                    b.Property<DateTime>("DataAquisicao")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Descricao")
@@ -234,6 +234,9 @@ namespace Cleanhosp_api_prod.Migrations
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("character varying(20)");
+
+                    b.Property<int>("Tipo")
+                        .HasColumnType("integer");
 
                     b.HasKey("PessoaId");
 

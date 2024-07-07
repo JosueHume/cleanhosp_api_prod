@@ -2,6 +2,12 @@
 
 namespace CleanHospAPI.Models
 {
+    public enum TipoUsuario
+    {
+        Administrador = 1,
+        Usuario = 2
+    }
+
     public class Pessoa
     {
         [Key]
@@ -29,5 +35,8 @@ namespace CleanHospAPI.Models
         [Required]
         [StringLength(100)]
         public string Senha { get; set; }
+
+        [Required]
+        public TipoUsuario Tipo { get; set; }
     }
 }

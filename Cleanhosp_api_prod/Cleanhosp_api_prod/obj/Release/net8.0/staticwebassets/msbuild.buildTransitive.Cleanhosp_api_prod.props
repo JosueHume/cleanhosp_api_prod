@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Cleanhosp_api_prod.props" />
+</Project>

@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|c:\\desenvolvimento\\c#\\api\\cleanhosp_api_prod\\cleanhosp_api_prod\\cleanhosp_api_prod\\controllers\\autenticacaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|solutionrelative:cleanhosp_api_prod\\controllers\\autenticacaocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|c:\\desenvolvimento\\c#\\api\\cleanhosp_api_prod\\cleanhosp_api_prod\\cleanhosp_api_prod\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|solutionrelative:cleanhosp_api_prod\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|c:\\desenvolvimento\\c#\\api\\cleanhosp_api_prod\\cleanhosp_api_prod\\cleanhosp_api_prod\\models\\local.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|solutionrelative:cleanhosp_api_prod\\models\\local.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|c:\\desenvolvimento\\c#\\api\\cleanhosp_api_prod\\cleanhosp_api_prod\\cleanhosp_api_prod\\controllers\\pessoascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|solutionrelative:cleanhosp_api_prod\\controllers\\pessoascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 177,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,41 +26,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Local.cs",
-              "DocumentMoniker": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Models\\Local.cs",
-              "RelativeDocumentMoniker": "Cleanhosp_api_prod\\Models\\Local.cs",
-              "ToolTip": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Models\\Local.cs",
-              "RelativeToolTip": "Cleanhosp_api_prod\\Models\\Local.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-06T18:23:35.499Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginModel.cs",
-              "DocumentMoniker": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Models\\LoginModel.cs",
-              "RelativeDocumentMoniker": "Cleanhosp_api_prod\\Models\\LoginModel.cs",
-              "ToolTip": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Models\\LoginModel.cs",
-              "RelativeToolTip": "Cleanhosp_api_prod\\Models\\LoginModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-06T18:23:15.556Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AutenticacaoController.cs",
-              "DocumentMoniker": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Controllers\\AutenticacaoController.cs",
-              "RelativeDocumentMoniker": "Cleanhosp_api_prod\\Controllers\\AutenticacaoController.cs",
-              "ToolTip": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Controllers\\AutenticacaoController.cs",
-              "RelativeToolTip": "Cleanhosp_api_prod\\Controllers\\AutenticacaoController.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAQwEAAAAAJAAAA",
+              "Title": "PessoasController.cs",
+              "DocumentMoniker": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Controllers\\PessoasController.cs",
+              "RelativeDocumentMoniker": "Cleanhosp_api_prod\\Controllers\\PessoasController.cs",
+              "ToolTip": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Controllers\\PessoasController.cs",
+              "RelativeToolTip": "Cleanhosp_api_prod\\Controllers\\PessoasController.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAD4vzcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-06T03:19:35.804Z",
+              "WhenOpened": "2024-07-07T00:40:50.816Z",
               "EditorCaption": ""
             }
           ]

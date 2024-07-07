@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cleanhosp_api_prod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c4a9996f24b26cb1427d92abd0aea223bc08ed9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fffaf00c2486ff1f24745b235cb7c2c78235285c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cleanhosp_api_prod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cleanhosp_api_prod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
