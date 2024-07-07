@@ -10,10 +10,10 @@ namespace CleanHospAPI.Models
         public int LimpezaAndamentoId { get; set; }
 
         [Required]
-        [ForeignKey("Ala")]
-        public int AlaId { get; set; }
+        [ForeignKey("Local")]
+        public int LocalId { get; set; }
 
-        public Ala Ala { get; set; }
+        public Local Local { get; set; }
 
         [Required]
         [ForeignKey("Pessoa")]
@@ -31,7 +31,6 @@ namespace CleanHospAPI.Models
 
         public Limpeza Limpeza { get; set; }
 
-        // Relacionamentos um-para-muitos
         public List<ProdutosUtilizados> ProdutosUtilizados { get; set; }
         public List<EquipamentosUtilizados> EquipamentosUtilizados { get; set; }
 

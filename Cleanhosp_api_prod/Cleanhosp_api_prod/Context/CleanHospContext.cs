@@ -23,14 +23,34 @@ namespace CleanHosp.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<LimpezaAndamento>()
+                .HasOne(la => la.Local)
+                .WithMany()  
+                .HasForeignKey(la => la.LocalId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<LimpezaAndamento>()
+                .HasOne(la => la.Pessoa)
+                .WithMany() 
+                .HasForeignKey(la => la.PessoaId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<LimpezaAndamento>()
+                .HasOne(la => la.Limpeza)
+                .WithMany()  
+                .HasForeignKey(la => la.LimpezaId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<LimpezaAndamento>()
                 .HasMany(la => la.ProdutosUtilizados)
                 .WithOne()
-                .HasForeignKey(pu => pu.LimpezaAndamentoId);
+                .HasForeignKey(pu => pu.LimpezaAndamentoId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<LimpezaAndamento>()
                 .HasMany(la => la.EquipamentosUtilizados)
                 .WithOne()
-                .HasForeignKey(eu => eu.LimpezaAndamentoId);
+                .HasForeignKey(eu => eu.LimpezaAndamentoId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             base.OnModelCreating(modelBuilder);
 

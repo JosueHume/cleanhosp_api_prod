@@ -23,7 +23,6 @@ namespace CleanHospAPI.Controllers
 
         // GET: api/LimpezasAndamento
         [HttpGet]
-        [Authorize]
         public async Task<ActionResult<IEnumerable<LimpezaAndamento>>> GetLimpezasAndamento()
         {
             return await _context.LimpezasAndamento.ToListAsync();
@@ -31,7 +30,6 @@ namespace CleanHospAPI.Controllers
 
         // GET: api/LimpezasAndamento/5
         [HttpGet("{id}")]
-        [Authorize]
         public async Task<ActionResult<LimpezaAndamento>> GetLimpezaAndamento(int id)
         {
             var limpezaAndamento = await _context.LimpezasAndamento.FindAsync(id);
@@ -46,7 +44,6 @@ namespace CleanHospAPI.Controllers
 
         // POST: api/LimpezasAndamento
         [HttpPost]
-        [Authorize]
         public async Task<ActionResult<LimpezaAndamento>> PostLimpezaAndamento(LimpezaAndamento limpezaAndamento)
         {
             _context.LimpezasAndamento.Add(limpezaAndamento);
@@ -56,7 +53,6 @@ namespace CleanHospAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize]
         public async Task<IActionResult> PutLimpezaAndamento(int id, LimpezaAndamento limpezaAndamento)
         {
             if (id != limpezaAndamento.LimpezaAndamentoId)
@@ -95,7 +91,6 @@ namespace CleanHospAPI.Controllers
 
         // DELETE: api/LimpezasAndamento/5
         [HttpDelete("{id}")]
-        [Authorize]
         public async Task<IActionResult> DeleteLimpezaAndamento(int id)
         {
             var limpezaAndamento = await _context.LimpezasAndamento.FindAsync(id);
