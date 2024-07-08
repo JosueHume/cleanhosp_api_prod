@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Cleanhosp_api_prod.Migrations
 {
     /// <inheritdoc />
-    public partial class MigrationInitial : Migration
+    public partial class MigrationInicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -34,7 +34,7 @@ namespace Cleanhosp_api_prod.Migrations
                     Nome = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     Marca = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     Modelo = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    DataAquisicao = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    DataAquisicao = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     ValorAquisicao = table.Column<decimal>(type: "numeric", nullable: false),
                     Ativo = table.Column<bool>(type: "boolean", nullable: false)
@@ -55,6 +55,25 @@ namespace Cleanhosp_api_prod.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Limpezas", x => x.LimpezaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LimpezasAndamento",
+                columns: table => new
+                {
+                    LimpezaAndamentoId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    LocalId = table.Column<int>(type: "integer", nullable: false),
+                    PessoaId = table.Column<int>(type: "integer", nullable: false),
+                    DataInicio = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    DataFim = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    LimpezaId = table.Column<int>(type: "integer", nullable: false),
+                    Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Finalizado = table.Column<bool>(type: "boolean", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LimpezasAndamento", x => x.LimpezaAndamentoId);
                 });
 
             migrationBuilder.CreateTable(
@@ -82,7 +101,8 @@ namespace Cleanhosp_api_prod.Migrations
                     Telefone = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: false),
                     Email = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     Login = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    Senha = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false)
+                    Senha = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
+                    Tipo = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -107,43 +127,6 @@ namespace Cleanhosp_api_prod.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "LimpezasAndamento",
-                columns: table => new
-                {
-                    LimpezaAndamentoId = table.Column<int>(type: "integer", nullable: false)
-                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    AlaId = table.Column<int>(type: "integer", nullable: false),
-                    PessoaId = table.Column<int>(type: "integer", nullable: false),
-                    DataInicio = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    DataFim = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    LimpezaId = table.Column<int>(type: "integer", nullable: false),
-                    Descricao = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
-                    Finalizado = table.Column<bool>(type: "boolean", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_LimpezasAndamento", x => x.LimpezaAndamentoId);
-                    table.ForeignKey(
-                        name: "FK_LimpezasAndamento_Alas_AlaId",
-                        column: x => x.AlaId,
-                        principalTable: "Alas",
-                        principalColumn: "AlaId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_LimpezasAndamento_Limpezas_LimpezaId",
-                        column: x => x.LimpezaId,
-                        principalTable: "Limpezas",
-                        principalColumn: "LimpezaId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_LimpezasAndamento_Pessoas_PessoaId",
-                        column: x => x.PessoaId,
-                        principalTable: "Pessoas",
-                        principalColumn: "PessoaId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "EquipamentosUtilizados",
                 columns: table => new
                 {
@@ -151,9 +134,7 @@ namespace Cleanhosp_api_prod.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     TempoUsoEmMinutos = table.Column<int>(type: "integer", nullable: false),
                     EquipamentoId = table.Column<int>(type: "integer", nullable: false),
-                    LimpezaAndamentoId = table.Column<int>(type: "integer", nullable: false),
-                    LimpezaAndamentoId1 = table.Column<int>(type: "integer", nullable: false),
-                    LimpezaAndamentoId2 = table.Column<int>(type: "integer", nullable: false)
+                    LimpezaAndamentoId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -170,12 +151,6 @@ namespace Cleanhosp_api_prod.Migrations
                         principalTable: "LimpezasAndamento",
                         principalColumn: "LimpezaAndamentoId",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_EquipamentosUtilizados_LimpezasAndamento_LimpezaAndamentoId1",
-                        column: x => x.LimpezaAndamentoId1,
-                        principalTable: "LimpezasAndamento",
-                        principalColumn: "LimpezaAndamentoId",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -186,9 +161,7 @@ namespace Cleanhosp_api_prod.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Quantidade = table.Column<int>(type: "integer", nullable: false),
                     ProdutoId = table.Column<int>(type: "integer", nullable: false),
-                    LimpezaAndamentoId = table.Column<int>(type: "integer", nullable: false),
-                    LimpezaAndamentoId1 = table.Column<int>(type: "integer", nullable: false),
-                    LimpezaAndamentoId2 = table.Column<int>(type: "integer", nullable: false)
+                    LimpezaAndamentoId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -196,12 +169,6 @@ namespace Cleanhosp_api_prod.Migrations
                     table.ForeignKey(
                         name: "FK_ProdutosUtilizados_LimpezasAndamento_LimpezaAndamentoId",
                         column: x => x.LimpezaAndamentoId,
-                        principalTable: "LimpezasAndamento",
-                        principalColumn: "LimpezaAndamentoId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProdutosUtilizados_LimpezasAndamento_LimpezaAndamentoId1",
-                        column: x => x.LimpezaAndamentoId1,
                         principalTable: "LimpezasAndamento",
                         principalColumn: "LimpezaAndamentoId",
                         onDelete: ReferentialAction.Cascade);
@@ -224,34 +191,9 @@ namespace Cleanhosp_api_prod.Migrations
                 column: "LimpezaAndamentoId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EquipamentosUtilizados_LimpezaAndamentoId1",
-                table: "EquipamentosUtilizados",
-                column: "LimpezaAndamentoId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_LimpezasAndamento_AlaId",
-                table: "LimpezasAndamento",
-                column: "AlaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_LimpezasAndamento_LimpezaId",
-                table: "LimpezasAndamento",
-                column: "LimpezaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_LimpezasAndamento_PessoaId",
-                table: "LimpezasAndamento",
-                column: "PessoaId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ProdutosUtilizados_LimpezaAndamentoId",
                 table: "ProdutosUtilizados",
                 column: "LimpezaAndamentoId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProdutosUtilizados_LimpezaAndamentoId1",
-                table: "ProdutosUtilizados",
-                column: "LimpezaAndamentoId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProdutosUtilizados_ProdutoId",
@@ -263,10 +205,19 @@ namespace Cleanhosp_api_prod.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Alas");
+
+            migrationBuilder.DropTable(
                 name: "EquipamentosUtilizados");
 
             migrationBuilder.DropTable(
+                name: "Limpezas");
+
+            migrationBuilder.DropTable(
                 name: "Locais");
+
+            migrationBuilder.DropTable(
+                name: "Pessoas");
 
             migrationBuilder.DropTable(
                 name: "ProdutosUtilizados");
@@ -279,15 +230,6 @@ namespace Cleanhosp_api_prod.Migrations
 
             migrationBuilder.DropTable(
                 name: "Produtos");
-
-            migrationBuilder.DropTable(
-                name: "Alas");
-
-            migrationBuilder.DropTable(
-                name: "Limpezas");
-
-            migrationBuilder.DropTable(
-                name: "Pessoas");
         }
     }
 }

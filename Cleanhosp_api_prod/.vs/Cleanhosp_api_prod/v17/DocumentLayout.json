@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|c:\\desenvolvimento\\c#\\api\\cleanhosp_api_prod\\cleanhosp_api_prod\\cleanhosp_api_prod\\context\\cleanhospcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|solutionrelative:cleanhosp_api_prod\\context\\cleanhospcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|c:\\desenvolvimento\\c#\\api\\cleanhosp_api_prod\\cleanhosp_api_prod\\cleanhosp_api_prod\\controllers\\limpezasandamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|solutionrelative:cleanhosp_api_prod\\controllers\\limpezasandamentocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|c:\\desenvolvimento\\c#\\api\\cleanhosp_api_prod\\cleanhosp_api_prod\\cleanhosp_api_prod\\models\\limpezaandamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0570DD3F-AE42-40BA-8ED6-C6A958E2983C}|Cleanhosp_api_prod\\Cleanhosp_api_prod.csproj|solutionrelative:cleanhosp_api_prod\\models\\limpezaandamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 177,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,41 +26,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LimpezaAndamento.cs",
-              "DocumentMoniker": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Models\\LimpezaAndamento.cs",
-              "RelativeDocumentMoniker": "Cleanhosp_api_prod\\Models\\LimpezaAndamento.cs",
-              "ToolTip": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Models\\LimpezaAndamento.cs",
-              "RelativeToolTip": "Cleanhosp_api_prod\\Models\\LimpezaAndamento.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAowCAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-07T17:16:41.275Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CleanHospContext.cs",
-              "DocumentMoniker": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Context\\CleanHospContext.cs",
-              "RelativeDocumentMoniker": "Cleanhosp_api_prod\\Context\\CleanHospContext.cs",
-              "ToolTip": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Context\\CleanHospContext.cs",
-              "RelativeToolTip": "Cleanhosp_api_prod\\Context\\CleanHospContext.cs",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAAADgAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-07T17:13:59.689Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "LimpezasAndamentoController.cs",
               "DocumentMoniker": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Controllers\\LimpezasAndamentoController.cs",
               "RelativeDocumentMoniker": "Cleanhosp_api_prod\\Controllers\\LimpezasAndamentoController.cs",
               "ToolTip": "C:\\Desenvolvimento\\C#\\API\\cleanhosp_api_prod\\Cleanhosp_api_prod\\Cleanhosp_api_prod\\Controllers\\LimpezasAndamentoController.cs",
               "RelativeToolTip": "Cleanhosp_api_prod\\Controllers\\LimpezasAndamentoController.cs",
-              "ViewState": "AQIAAFkAAAAAAAAAAAAgwGYAAAAuAAAA",
+              "ViewState": "AQIAACIAAAAAAAAAAAAgwC0AAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-07T05:36:37.8Z",
+              "WhenOpened": "2024-07-08T01:30:40.831Z",
               "EditorCaption": ""
             }
           ]

@@ -1,12 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CleanHosp.Context;
 using CleanHospAPI.Models;
-using CleanHosp.Context;
-using Microsoft.AspNetCore.Authorization;
-using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CleanHospAPI.Controllers
 {
@@ -42,30 +37,26 @@ namespace CleanHospAPI.Controllers
             return limpezaAndamento;
         }
 
-        // POST: api/LimpezasAndamento
         [HttpPost]
         public async Task<ActionResult<LimpezaAndamento>> PostLimpezaAndamento(LimpezaAndamento limpezaAndamento)
         {
+            limpezaAndamento.DataInicio = limpezaAndamento.DataInicio?.ToUniversalTime();
+            limpezaAndamento.DataFim = limpezaAndamento.DataFim?.ToUniversalTime();
+
             _context.LimpezasAndamento.Add(limpezaAndamento);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetLimpezaAndamento), new { id = limpezaAndamento.LimpezaAndamentoId }, limpezaAndamento);
         }
 
+
+        // PUT: api/LimpezasAndamento/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutLimpezaAndamento(int id, LimpezaAndamento limpezaAndamento)
         {
             if (id != limpezaAndamento.LimpezaAndamentoId)
             {
                 return BadRequest();
-            }
-
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var existingLimpeza = await _context.LimpezasAndamento.FindAsync(id);
-
-            if (existingLimpeza == null || existingLimpeza.PessoaId.ToString() != userId)
-            {
-                return Forbid();
             }
 
             _context.Entry(limpezaAndamento).State = EntityState.Modified;

@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Cleanhosp_api_prod.Migrations
 {
     [DbContext(typeof(CleanHospContext))]
-    [Migration("20240704034216_MigrationInitial")]
-    partial class MigrationInitial
+    [Migration("20240707230156_MigrationInicial")]
+    partial class MigrationInicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,7 +54,7 @@ namespace Cleanhosp_api_prod.Migrations
                     b.Property<bool>("Ativo")
                         .HasColumnType("boolean");
 
-                    b.Property<DateTime?>("DataAquisicao")
+                    b.Property<DateTime>("DataAquisicao")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Descricao")
@@ -99,12 +99,6 @@ namespace Cleanhosp_api_prod.Migrations
                     b.Property<int>("LimpezaAndamentoId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("LimpezaAndamentoId1")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("LimpezaAndamentoId2")
-                        .HasColumnType("integer");
-
                     b.Property<int>("TempoUsoEmMinutos")
                         .HasColumnType("integer");
 
@@ -113,8 +107,6 @@ namespace Cleanhosp_api_prod.Migrations
                     b.HasIndex("EquipamentoId");
 
                     b.HasIndex("LimpezaAndamentoId");
-
-                    b.HasIndex("LimpezaAndamentoId1");
 
                     b.ToTable("EquipamentosUtilizados");
                 });
@@ -145,9 +137,6 @@ namespace Cleanhosp_api_prod.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("LimpezaAndamentoId"));
 
-                    b.Property<int>("AlaId")
-                        .HasColumnType("integer");
-
                     b.Property<DateTime?>("DataFim")
                         .HasColumnType("timestamp with time zone");
 
@@ -165,16 +154,13 @@ namespace Cleanhosp_api_prod.Migrations
                     b.Property<int>("LimpezaId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("LocalId")
+                        .HasColumnType("integer");
+
                     b.Property<int>("PessoaId")
                         .HasColumnType("integer");
 
                     b.HasKey("LimpezaAndamentoId");
-
-                    b.HasIndex("AlaId");
-
-                    b.HasIndex("LimpezaId");
-
-                    b.HasIndex("PessoaId");
 
                     b.ToTable("LimpezasAndamento");
                 });
@@ -238,6 +224,9 @@ namespace Cleanhosp_api_prod.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("character varying(20)");
 
+                    b.Property<int>("Tipo")
+                        .HasColumnType("integer");
+
                     b.HasKey("PessoaId");
 
                     b.ToTable("Pessoas");
@@ -288,12 +277,6 @@ namespace Cleanhosp_api_prod.Migrations
                     b.Property<int>("LimpezaAndamentoId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("LimpezaAndamentoId1")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("LimpezaAndamentoId2")
-                        .HasColumnType("integer");
-
                     b.Property<int>("ProdutoId")
                         .HasColumnType("integer");
 
@@ -303,8 +286,6 @@ namespace Cleanhosp_api_prod.Migrations
                     b.HasKey("ProdutosUtilizadosId");
 
                     b.HasIndex("LimpezaAndamentoId");
-
-                    b.HasIndex("LimpezaAndamentoId1");
 
                     b.HasIndex("ProdutoId");
 
@@ -319,15 +300,9 @@ namespace Cleanhosp_api_prod.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CleanHospAPI.Models.LimpezaAndamento", null)
-                        .WithMany("EquipamentosUtilizados")
-                        .HasForeignKey("LimpezaAndamentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("CleanHospAPI.Models.LimpezaAndamento", "LimpezaAndamento")
                         .WithMany()
-                        .HasForeignKey("LimpezaAndamentoId1")
+                        .HasForeignKey("LimpezaAndamentoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -336,44 +311,11 @@ namespace Cleanhosp_api_prod.Migrations
                     b.Navigation("LimpezaAndamento");
                 });
 
-            modelBuilder.Entity("CleanHospAPI.Models.LimpezaAndamento", b =>
-                {
-                    b.HasOne("CleanHospAPI.Models.Ala", "Ala")
-                        .WithMany()
-                        .HasForeignKey("AlaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CleanHospAPI.Models.Limpeza", "Limpeza")
-                        .WithMany()
-                        .HasForeignKey("LimpezaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CleanHospAPI.Models.Pessoa", "Pessoa")
-                        .WithMany()
-                        .HasForeignKey("PessoaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Ala");
-
-                    b.Navigation("Limpeza");
-
-                    b.Navigation("Pessoa");
-                });
-
             modelBuilder.Entity("CleanHospAPI.Models.ProdutosUtilizados", b =>
                 {
-                    b.HasOne("CleanHospAPI.Models.LimpezaAndamento", null)
-                        .WithMany("ProdutosUtilizados")
-                        .HasForeignKey("LimpezaAndamentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("CleanHospAPI.Models.LimpezaAndamento", "LimpezaAndamento")
                         .WithMany()
-                        .HasForeignKey("LimpezaAndamentoId1")
+                        .HasForeignKey("LimpezaAndamentoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -386,13 +328,6 @@ namespace Cleanhosp_api_prod.Migrations
                     b.Navigation("LimpezaAndamento");
 
                     b.Navigation("Produto");
-                });
-
-            modelBuilder.Entity("CleanHospAPI.Models.LimpezaAndamento", b =>
-                {
-                    b.Navigation("EquipamentosUtilizados");
-
-                    b.Navigation("ProdutosUtilizados");
                 });
 #pragma warning restore 612, 618
         }

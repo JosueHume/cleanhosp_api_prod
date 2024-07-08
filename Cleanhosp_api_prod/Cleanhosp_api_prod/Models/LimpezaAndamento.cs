@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CleanHospAPI.Models
 {
@@ -9,30 +8,19 @@ namespace CleanHospAPI.Models
         [Key]
         public int LimpezaAndamentoId { get; set; }
 
-        [Required]
-        [ForeignKey("Local")]
-        public int LocalId { get; set; }
+        public int LocalId { get; set; }  
 
-        public Local Local { get; set; }
-
-        [Required]
-        [ForeignKey("Pessoa")]
         public int PessoaId { get; set; }
 
-        public Pessoa Pessoa { get; set; }
+        public int LimpezaId { get; set; }
+
+        public int EquipamentoId { get; set; }
+
+        public int ProdutoId { get; set; }
 
         public DateTime? DataInicio { get; set; }
 
         public DateTime? DataFim { get; set; }
-
-        [Required]
-        [ForeignKey("Limpeza")]
-        public int LimpezaId { get; set; }
-
-        public Limpeza Limpeza { get; set; }
-
-        public List<ProdutosUtilizados> ProdutosUtilizados { get; set; }
-        public List<EquipamentosUtilizados> EquipamentosUtilizados { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -40,5 +28,4 @@ namespace CleanHospAPI.Models
 
         public bool Finalizado { get; set; }
     }
-
 }

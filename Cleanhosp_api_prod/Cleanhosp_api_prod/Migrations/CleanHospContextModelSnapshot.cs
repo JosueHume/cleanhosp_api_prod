@@ -96,12 +96,6 @@ namespace Cleanhosp_api_prod.Migrations
                     b.Property<int>("LimpezaAndamentoId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("LimpezaAndamentoId1")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("LimpezaAndamentoId2")
-                        .HasColumnType("integer");
-
                     b.Property<int>("TempoUsoEmMinutos")
                         .HasColumnType("integer");
 
@@ -110,8 +104,6 @@ namespace Cleanhosp_api_prod.Migrations
                     b.HasIndex("EquipamentoId");
 
                     b.HasIndex("LimpezaAndamentoId");
-
-                    b.HasIndex("LimpezaAndamentoId1");
 
                     b.ToTable("EquipamentosUtilizados");
                 });
@@ -153,6 +145,9 @@ namespace Cleanhosp_api_prod.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
+                    b.Property<int>("EquipamentoId")
+                        .HasColumnType("integer");
+
                     b.Property<bool>("Finalizado")
                         .HasColumnType("boolean");
 
@@ -165,13 +160,10 @@ namespace Cleanhosp_api_prod.Migrations
                     b.Property<int>("PessoaId")
                         .HasColumnType("integer");
 
+                    b.Property<int>("ProdutoId")
+                        .HasColumnType("integer");
+
                     b.HasKey("LimpezaAndamentoId");
-
-                    b.HasIndex("LimpezaId");
-
-                    b.HasIndex("LocalId");
-
-                    b.HasIndex("PessoaId");
 
                     b.ToTable("LimpezasAndamento");
                 });
@@ -288,12 +280,6 @@ namespace Cleanhosp_api_prod.Migrations
                     b.Property<int>("LimpezaAndamentoId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("LimpezaAndamentoId1")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("LimpezaAndamentoId2")
-                        .HasColumnType("integer");
-
                     b.Property<int>("ProdutoId")
                         .HasColumnType("integer");
 
@@ -303,8 +289,6 @@ namespace Cleanhosp_api_prod.Migrations
                     b.HasKey("ProdutosUtilizadosId");
 
                     b.HasIndex("LimpezaAndamentoId");
-
-                    b.HasIndex("LimpezaAndamentoId1");
 
                     b.HasIndex("ProdutoId");
 
@@ -319,15 +303,9 @@ namespace Cleanhosp_api_prod.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CleanHospAPI.Models.LimpezaAndamento", null)
-                        .WithMany("EquipamentosUtilizados")
-                        .HasForeignKey("LimpezaAndamentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("CleanHospAPI.Models.LimpezaAndamento", "LimpezaAndamento")
                         .WithMany()
-                        .HasForeignKey("LimpezaAndamentoId1")
+                        .HasForeignKey("LimpezaAndamentoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -336,44 +314,11 @@ namespace Cleanhosp_api_prod.Migrations
                     b.Navigation("LimpezaAndamento");
                 });
 
-            modelBuilder.Entity("CleanHospAPI.Models.LimpezaAndamento", b =>
-                {
-                    b.HasOne("CleanHospAPI.Models.Limpeza", "Limpeza")
-                        .WithMany()
-                        .HasForeignKey("LimpezaId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("CleanHospAPI.Models.Local", "Local")
-                        .WithMany()
-                        .HasForeignKey("LocalId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("CleanHospAPI.Models.Pessoa", "Pessoa")
-                        .WithMany()
-                        .HasForeignKey("PessoaId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Limpeza");
-
-                    b.Navigation("Local");
-
-                    b.Navigation("Pessoa");
-                });
-
             modelBuilder.Entity("CleanHospAPI.Models.ProdutosUtilizados", b =>
                 {
-                    b.HasOne("CleanHospAPI.Models.LimpezaAndamento", null)
-                        .WithMany("ProdutosUtilizados")
-                        .HasForeignKey("LimpezaAndamentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("CleanHospAPI.Models.LimpezaAndamento", "LimpezaAndamento")
                         .WithMany()
-                        .HasForeignKey("LimpezaAndamentoId1")
+                        .HasForeignKey("LimpezaAndamentoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -386,13 +331,6 @@ namespace Cleanhosp_api_prod.Migrations
                     b.Navigation("LimpezaAndamento");
 
                     b.Navigation("Produto");
-                });
-
-            modelBuilder.Entity("CleanHospAPI.Models.LimpezaAndamento", b =>
-                {
-                    b.Navigation("EquipamentosUtilizados");
-
-                    b.Navigation("ProdutosUtilizados");
                 });
 #pragma warning restore 612, 618
         }
