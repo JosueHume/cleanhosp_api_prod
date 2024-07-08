@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Cleanhosp_api_prod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fffaf00c2486ff1f24745b235cb7c2c78235285c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55877c16a1d8f82d75aa72d78e22db8b13284515")]
 [assembly: System.Reflection.AssemblyProductAttribute("Cleanhosp_api_prod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Cleanhosp_api_prod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
