@@ -41,7 +41,7 @@ namespace CleanHospAPI.Controllers
         public async Task<ActionResult<LimpezaAndamento>> PostLimpezaAndamento(LimpezaAndamento limpezaAndamento)
         {
             limpezaAndamento.DataInicio = limpezaAndamento.DataInicio?.ToUniversalTime();
-            limpezaAndamento.DataFim = limpezaAndamento.DataFim?.ToUniversalTime();
+            limpezaAndamento.DataFim = DateTime.UtcNow;
 
             _context.LimpezasAndamento.Add(limpezaAndamento);
             await _context.SaveChangesAsync();
@@ -49,15 +49,17 @@ namespace CleanHospAPI.Controllers
             return CreatedAtAction(nameof(GetLimpezaAndamento), new { id = limpezaAndamento.LimpezaAndamentoId }, limpezaAndamento);
         }
 
-
-        // PUT: api/LimpezasAndamento/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutLimpezaAndamento(int id, LimpezaAndamento limpezaAndamento)
+        public async Task<IActionResult> PutLimpezaAndamento(int id, [FromBody] LimpezaAndamento limpezaAndamento)
         {
             if (id != limpezaAndamento.LimpezaAndamentoId)
             {
                 return BadRequest();
             }
+
+            // Atribui os novos valores recebidos
+            limpezaAndamento.Finalizado = true;
+            limpezaAndamento.DataFim = DateTime.UtcNow;
 
             _context.Entry(limpezaAndamento).State = EntityState.Modified;
 
@@ -77,8 +79,9 @@ namespace CleanHospAPI.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(limpezaAndamento);
         }
+
 
         // DELETE: api/LimpezasAndamento/5
         [HttpDelete("{id}")]
