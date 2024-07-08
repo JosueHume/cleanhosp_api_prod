@@ -41,7 +41,7 @@ namespace CleanHospAPI.Controllers
         public async Task<ActionResult<LimpezaAndamento>> PostLimpezaAndamento(LimpezaAndamento limpezaAndamento)
         {
             limpezaAndamento.DataInicio = limpezaAndamento.DataInicio?.ToUniversalTime();
-            limpezaAndamento.DataFim = DateTime.UtcNow;
+            limpezaAndamento.DataFim = null;
 
             _context.LimpezasAndamento.Add(limpezaAndamento);
             await _context.SaveChangesAsync();
